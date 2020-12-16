@@ -67,7 +67,7 @@ class VA:
     def initH(self,miniBatch):
     	"""Compute the gradients and use this to initialize h"""
         totalGradients = self.getGradients(miniBatch)
-        for i in xrange(len(totalGradients)):
+        for i in range(len(totalGradients)):
             self.h[i] += totalGradients[i]*totalGradients[i]
 
     def encode(self,x):
@@ -170,7 +170,7 @@ class VA:
         if batches[-1] != N:
             batches = np.append(batches,N)
 
-        for i in xrange(0,len(batches)-2):
+        for i in range(0,len(batches)-2):
             miniBatch = data[batches[i]:batches[i+1]]
             totalGradients = self.getGradients(miniBatch.T)
             self.updateParams(totalGradients,N,miniBatch.shape[0])
@@ -183,7 +183,7 @@ class VA:
         if batches[-1] != N:
             batches = np.append(batches,N)
 
-        for i in xrange(0,len(batches)-2):
+        for i in range(0,len(batches)-2):
             miniBatch = data[batches[i]:batches[i+1]]
             e = np.random.normal(0,1,[self.dimZ,miniBatch.shape[0]])
             lowerbound += self.lowerboundfunction(*(self.params),x=miniBatch.T,eps=e)
@@ -194,19 +194,19 @@ class VA:
     def getGradients(self,miniBatch):
     	"""Compute the gradients for one minibatch and check if these do not contain NaNs"""
         totalGradients = [0] * len(self.params)
-        for l in xrange(self.L):
+        for l in range(self.L):
             e = np.random.normal(0,1,[self.dimZ,miniBatch.shape[1]])
             gradients = self.gradientfunction(*(self.params),x=miniBatch,eps=e)
             self.lowerbound += gradients[-1]
 
-            for i in xrange(len(self.params)):
+            for i in range(len(self.params)):
                 totalGradients[i] += gradients[i]
 
         return totalGradients
 
     def updateParams(self,totalGradients,N,current_batch_size):
     	"""Update the parameters, taking into account AdaGrad and a prior"""
-        for i in xrange(len(self.params)):
+        for i in range(len(self.params)):
             self.h[i] += totalGradients[i]*totalGradients[i]
             if i < 5 or (i < 6 and len(self.params) == 12):
                 prior = 0.5*self.params[i]
