@@ -47,7 +47,7 @@ def MMD_3_Sample_Test(X,Y,Z,sigma=-1,SelectSigma=2,computeMMDs=False):
     #Compute the test statistic
     t=u_yy - 2.*u_xy - (u_zz-2.*u_xz)
     Diff_Var,Diff_Var_z2,data=MMD_Diff_Var(Kyy,Kzz,Kxy,Kxz)
-
+    print('Diff_Var:', Diff_Var.shape, Diff_Var)
     pvalue=sp.stats.norm.cdf(-t/np.sqrt((Diff_Var)))
   #  pvalue_z2=sp.stats.norm.cdf(-t/np.sqrt((Diff_Var_z2)))
     tstat=t/sqrt(Diff_Var)
