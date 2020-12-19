@@ -8,3 +8,13 @@ The Relative MMD computations need to be exact to assure their validity. Thus ma
 For a matlab version of the Relative MMD test please see https://github.com/wbounliphone/relative_similarity_test
 
 For questions and or bug reports please dont hesitate to contact eugene.belilovsky@inria.fr
+
+___________
+
+The files related to our experiments (the Skoltech project):
+
+1) toy_dataset_experiments.ipynb
+2) VAE_plot_reproduction.py
+3) reproducing_MNIST_calc.ipynb
+4) gan_experiments.ipynb
+5) gan.py (for training GAN on a cluster)
