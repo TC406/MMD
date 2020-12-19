@@ -11,7 +11,7 @@ For questions and or bug reports please dont hesitate to contact eugene.belilovs
 
 ___________
 
-The files related to our experiments (the Skoltech project):
+The files related to our experiments (the Skoltech "PRINCIPLES OF APPLIED STATISTICS" course project):
 
 1) toy_dataset_experiments.ipynb
 2) VAE_plot_reproduction.py
